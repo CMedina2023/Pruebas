@@ -5,7 +5,7 @@ name: Python application
 
 on:
   schedule:
-    - cron: '59 13 * * *'
+    - cron: '15 20 * * *'
   push:
     branches: [ "master" ]
   pull_request:
@@ -40,3 +40,9 @@ jobs:
     - name: Test with pytest
       run: |
         pytest ./main.py -v -s
+    - name: Upload report
+      uses: actions/upload-artifact@v2
+      with:
+        name: test-report
+        path: |
+          pytest-report.xml  # Ajusta el nombre del informe según tu configuración
