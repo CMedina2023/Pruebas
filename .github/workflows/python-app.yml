@@ -41,3 +41,4 @@ jobs:
     - name: Test with pytest
       run: |
         pytest ./main.py -v -s --html=reports.html
+        cp reports.html https://github.com/CMedina2023/Pruebas.git/report.html
