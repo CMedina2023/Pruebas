@@ -41,7 +41,7 @@ jobs:
       run: |
         pytest ./main.py -v -s
     - name: Upload report
-      uses: actions/upload-artifact@v2
+      uses: actions/upload-artifact@v2.2.4  # Actualiza a la última versión
       with:
         name: test-report
         path: |
