@@ -41,9 +41,15 @@ jobs:
     - name: Test with pytest
       run: |
         pytest ./main.py --html=reports.html
-    - name: Publicar informe en GitHub Pages
-      uses: peaceiris/actions-gh-pages@v3
+        chmod 777  /home/runner/work/Pruebas/Pruebas/
+        
+    - name: Set output
+      if: success() || failure()
+      id: results
+      run: echo "artifactPath=/home/runner/work/Pruebas/Pruebas/" >> $GITHUB_OUTPUT
+
+    - uses: actions/upload-artifact@v3
+      if: success() || failure()
       with:
-        github_token: ${{ secrets.GITHUB_TOKEN }}
-        publish_dir: ./report.html
-        commit_message: "Actualizar informe HTML"
+        name: test-report
+        path: ${{ steps.results.outputs.artifactPath }}
