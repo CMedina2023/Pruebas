@@ -40,5 +40,10 @@ jobs:
         flake8 . --count --exit-zero --max-complexity=10 --max-line-length=127 --statistics
     - name: Test with pytest
       run: |
-        pytest ./main.py -v -s --html=reports.html
-        cp reports.html $GITHUB_WORKSPACE/report.html
+        pytest ./main.py --html=reports.html
+    - name: Publicar informe en GitHub Pages
+      uses: peaceiris/actions-gh-pages@v3
+      with:
+        github_token: ${{ secrets.GITHUB_TOKEN }}
+        publish_dir: ./report.html
+        commit_message: "Actualizar informe HTML"
