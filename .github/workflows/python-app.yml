@@ -5,7 +5,7 @@ name: Python application
 
 on:
   schedule:
-    - cron: '15 23 * * *'
+    - cron: '10 22 * * *'
   push:
     branches: [ "master" ]
   pull_request:
@@ -40,7 +40,7 @@ jobs:
         flake8 . --count --exit-zero --max-complexity=10 --max-line-length=127 --statistics
     - name: Test with pytest
       run: |
-        pytest ./main.py --html=reports.html
+        pytest ./Jira.py --html=reports.html
         chmod 777  /home/runner/work/Pruebas/Pruebas/
         
     - name: Set output
