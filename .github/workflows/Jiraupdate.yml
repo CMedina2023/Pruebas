@@ -36,4 +36,5 @@ jobs:
 
     - name: Ejecutar prueba y actualizar Jira
       run: |
-        python jira.py
+        pytest ./Jira.py --html=reports.html
+        chmod 777  /home/runner/work/Pruebas/Pruebas/
