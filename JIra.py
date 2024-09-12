@@ -8,12 +8,21 @@ jira_token = 'ATATT3xFfGF07d8fddMMTUZOnJhzXXLG40txpySkvjsDJaXyI6TmvzqDlOxK8dOQpl
 # Conectar a Jira
 jira = JIRA(jira_url, basic_auth=(jira_user, jira_token))
 
-# ID de la tarea de Jira (por ejemplo, "PROY-123")
-issue_id = 'PROY-123'
+# ID de la tarea de Jira (por ejemplo, "PDC-63")
+issue_id = 'PDC-63'
 
-# Agregar un comentario en la tarea cuando la prueba se complete
-comentario = 'La prueba automatizada main.py se ha ejecutado correctamente.'
+# Ejecutar la prueba automatizada
+def ejecutar_prueba():
+    # Lógica de tu prueba aquí
+    resultado_prueba = True  # O false dependiendo de la prueba
+    return resultado_prueba
+
+resultado = ejecutar_prueba()
 
 # Actualizar la tarea en Jira
+if resultado:
+    comentario = 'La prueba automatizada se ejecutó exitosamente.'
+else:
+    comentario = 'La prueba automatizada falló.'
+
 jira.add_comment(issue_id, comentario)
-print(f'Se ha actualizado la tarea {issue_id} en Jira.')
