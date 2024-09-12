@@ -24,6 +24,6 @@ jobs:
         python main_update.py
 
     env:
-        JIRA_API_TOKEN: ${{ ATATT3xFfGF07d8fddMMTUZOnJhzXXLG40txpySkvjsDJaXyI6TmvzqDlOxK8dOQpls_iS9YyFs9oLqQ6D4PRr2oxXkCMpU7Xnbzd1FMUuT3cSQA9jnwjG0v6mG8bJ6soSnwU2PIPn7GD1zdDvDTIlKks79MhIQDrNV-Qtn6FY8wdojpCkba0Wk=ABE9E89C }}
-        JIRA_USER: ${{ carlosmarsh@hotmail.com }}
-        JIRA_URL: ${{ https://carlosprueba.atlassian.net }}
+      JIRA_API_TOKEN: ${{ secrets.JIRA_API_TOKEN }}
+      JIRA_USER: ${{ secrets.JIRA_USER }}
+      JIRA_URL: ${{ secrets.JIRA_URL }}
