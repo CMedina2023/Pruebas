@@ -25,16 +25,4 @@ jobs:
 
     - name: Ejecutar prueba y actualizar Jira
       run: |
-        python Jira.py --html=reports.html
-        chmod 777  /home/runner/work/Pruebas/Pruebas/
-
-    - name: Set output
-      if: success() || failure()
-      id: results
-      run: echo "artifactPath=/home/runner/work/Pruebas/Pruebas/" >> $GITHUB_OUTPUT
-
-    - uses: actions/upload-artifact@v3
-      if: success() || failure()
-      with:
-        name: test-report
-        path: ${{ steps.results.outputs.artifactPath }}
+        python Jira.py
